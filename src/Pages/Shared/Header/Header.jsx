@@ -5,14 +5,21 @@ import logo from '../../../assets/img.png'
 const Header = () => {
     const links = <>
         <li><NavLink to="/" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black bg-transparent " : ""}>Home</NavLink></li>
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}>Home</NavLink></li>
         <li><NavLink to="/about" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black bg-transparent" : ""}>About</NavLink></li>
-
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}>About Us</NavLink></li>
+        <li><NavLink to="/business" className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}>Our Businesses</NavLink></li>
+        <li><NavLink to="/stan" className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}> Sustainability</NavLink></li>
+        <li><NavLink to="/stan" className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}> Csr</NavLink></li>
+        <li><NavLink to="/stan" className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}> Career</NavLink></li>
     </>
 
     return (
-        <div className="navbar bg-base-100 fixed top-0 z-50">
+        <div className="navbar bg-base-100 opacity-70 fixed top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,7 +29,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to='/'><a className="normal-case flex gap-2 text-xl lg:text-3xl font-medium text-black"><img src={logo} alt="" className="h-16"/></a></Link>
+                <Link to='/'><a className="normal-case flex gap-2 text-xl lg:text-3xl font-medium text-black"><img src={logo} alt="" className="h-16" /></a></Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
