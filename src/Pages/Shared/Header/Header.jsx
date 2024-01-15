@@ -1,8 +1,10 @@
 
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/img.png'
+import { useEffect, useState } from "react";
 
 const Header = () => {
+    const [headerColor, setHeaderColor] = useState("")
     const links = <>
         <li><NavLink to="/" className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}>Home</NavLink></li>
@@ -18,8 +20,18 @@ const Header = () => {
             isPending ? "pending" : isActive ? "text-black bg-transparent uppercase" : "uppercase"}> Career</NavLink></li>
     </>
 
+
+    const listenScrollEvent = () => {
+        window.scrollY > 10
+            ? setHeaderColor('#fff')
+            : setHeaderColor("")
+    }
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
+        window.addEventListener("scroll", listenScrollEvent)
+    })
     return (
-        <div className="navbar bg-base-100 opacity-70 fixed top-0 z-50">
+        <div className={`navbar ${!headerColor ? 'bg-white opacity-60': 'bg-white'}  fixed top-0 z-50`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
